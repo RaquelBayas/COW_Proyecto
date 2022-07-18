@@ -1,16 +1,14 @@
-<?php
-    require_once 'config.php';
+<?php 
+    include 'config.php';
 
-    if(isSet($_SESSION['email'])) {
-        header("Location: private.php");
+    // Check if the user is logged in
+    if(!isSet($_SESSION['email'])) {
+        header("Location: perfil.php");
         exit;
     }
 
-    if(isSet($_POST['submit'])){
-        $do_login = true;
-        include_once 'do_login.php';
-    }
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,6 +19,9 @@
         <script src="css/bootstrap-4.3.1_v2/bootstrap-4.3.1_v2/js/jquery.min.js"></script>
         <script src="css/bootstrap-4.3.1_v2/bootstrap-4.3.1_v2/js/popper.min.js"></script>
         <script src="css/bootstrap-4.3.1_v2/bootstrap-4.3.1_v2/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="js_perfil.js"></script>
+        <script type="text/javascript" src="js_parserXML.js"></script>
 
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -40,7 +41,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto" id="navbar-center" >
                     <li class="nav-item active">
-                      <a class="nav-link" id="link-nav" href="index.php">Home</a>
+                      <a class="nav-link" id="link-nav" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="link-nav" href="#">Hoteles</a>
@@ -55,27 +56,42 @@
                         <a class="nav-link" id="link-nav" href="reservas.php">Reservas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="link-nav" href="#">Perfil</a>
+                        <a class="nav-link" id="link-nav" href="perfil.php">Perfil</a>
                     </li>
                   </ul>
                 </div>
             </nav>           
         </header>
         <br>
-        <div class=row">
-        <div class="container-fluid text-center">    
-            <div class="row justify-content">
-            <div class="col-sm-6 mx-auto">
-            <form method="post"  class="formlogin" name="login" action="perfil.php" id="form-login">
-                <span class="form-label" >Email</span>
-                <input type="text" name="email" id="email" class="form-control">
-                <span class="form-label" >Contraseña</span>
-                <input type="text" name="password" id="password" class="form-control">
-                <label for="remember-me">Recordarme</label>
-                <input type="checkbox" name="autologin" value="1">
-                <input type="submit" name="submit" id="submit" value="Login">
-            </form>
+        <div class="container-fluix text-center">
+        <h4>Bienvenido/a, <?php echo $_SESSION['email']; ?> </h4> <a href="logout.php">Cerrar sesión.</a><br /><br /> 
+        <p>Esta es tu área personal: </p>
         </div>
+    
+        <div class="container-fluid text-center">    
+            <div class="row mx-auto">
+                <h4 style="margin-left: auto; margin-right: auto">¡Visualizar datos de la Reserva! </h4>
+            </div>
+            <div class="row justify-content" id="boton-reserva">
+                <div class="col-sm-6 mx-auto" id="btn_resevar">
+                    <form method="GET" class="formreserva" name="formreserva" id="form-reserva">
+                        <div class="form-group">
+                            <span class="form-label" for="nombre" >Nombre</span>
+                            <input type="text" name="nombre" id="nombre" class="form-control">
+                            <span class="form-label" for="email">Apellidos</span>
+                            <input type="text" name="apellidos" id="apellidos" class="form-control">
+                            <span class="form-label" >DNI</span>
+                            <input type="text" name="dni" id="dni" class="form-control">
+                            <span class="form-label" >Email</span>
+                            <input type="text" name="email" id="email" class="form-control">
+                        </div>
+                        <input type="submit"  id="send_data_perfil" value="Comprobar datos">
+                        <input type="submit"  id="json_btn" value="Tabla xml">
+                    </form>
+                </div>
+            </div>
+            <div id="final"></div>
+            <table id="demo"></table>
         </div>
         <div class="footer">
             <h6>&copy; All Rights Reserved.</h6>

@@ -21,4 +21,25 @@ jq(document).ready(function(){
             return false;
         });
     });
+
+    /*jq("#datos").click(function() {
+        var email = jq("input#email").val();
+        var password = jq("input#password").val();
+        var datos = 'email=' + email + '&password='+password;
+       console.log(datos);
+        jq('.formlogin').submit(function() {
+            jq.ajax({
+                url: "servidor_login.php",
+                type: "GET",
+                data: datos,
+            })
+            .done(function(data) {
+                jq('#final').html(data);
+            })
+            .fail(function(){
+                alert("failed");
+            });
+            return false;
+        });
+    });*/
 });

@@ -21,7 +21,7 @@
         <script type="text/javascript" src="getHint.js"></script>
         <script type="text/javascript" src="js_cliente.js"></script>
 
-         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>                      
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>                      
         <link href="css/bootstrap-4.3.1_v2/bootstrap-4.3.1_v2/css/bootstrap.css" rel="stylesheet"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
        
@@ -30,7 +30,7 @@
         <header class="header">
             <h1>BE DREAMS</h1>
             <nav class="navbar navbar-expand-lg navbar-light" id="barra-nav">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -39,13 +39,16 @@
                       <a class="nav-link" id="link-nav" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="link-nav" href="hoteles.php">Hoteles</a>
+                        <a class="nav-link" id="link-nav" href="#">Hoteles</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="link-nav" href="#">Ofertas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="link-nav" href="#">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="link-nav" href="reservas.php">Reservas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="link-nav" href="perfil.php">Perfil</a>
